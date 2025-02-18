@@ -1,0 +1,34 @@
+.layout-wrapper .layout-main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  padding: 6rem 2rem 2rem 4rem;
+  transition: margin-left $transitionDuration;
+}
+
+.layout-wrapper.layout-static-horizontal .layout-main-container {
+  margin-left: 0;
+  padding-left: 2rem;
+}
+
+.layout-main-container .layout-main {
+  flex: 1 1 auto;
+  border: solid black 1px;
+}
+
+.layout-static .layout-main-container {
+  margin-left: 20rem;
+}
+
+.layout-static-inactive .layout-main-container {
+  margin-left: 0;
+  padding-left: 2rem;
+}
+
+@media (max-width: 991px) {
+  .layout-wrapper.layout-static .layout-main-container {
+    margin-left: 0;
+    padding-left: 2rem;
+  }
+}

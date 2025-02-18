@@ -1,0 +1,17 @@
+<div class="layout-wrapper layout-static">
+  <app-topbar></app-topbar>
+  <div id="sidebar">
+    <app-sidebar class="layout-sidebar"></app-sidebar>
+  </div>
+
+  <div class="layout-main-container">
+    <div class="layout-main">
+      main
+      <router-outlet />
+    </div>
+  </div>
+
+  <div class="layout-switch">
+    <switch-layout></switch-layout>
+  </div>
+</div>
