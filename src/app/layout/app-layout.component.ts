@@ -52,16 +52,14 @@ export class AppLayoutComponent {
   private startListening() {
     this.stopListening();
     this.clickSubscription = fromEvent(document, 'click').subscribe((event) => {
-      if (this.layoutService.isMobile()) {
-        const isOutsideClicked = !(
-          this.sidebar.el.nativeElement.isSameNode(event.target) ||
-          this.sidebar.el.nativeElement.contains(event.target) ||
-          this.topbar.buttonToggle.nativeElement.isSameNode(event.target) ||
-          this.topbar.buttonToggle.nativeElement.contains(event.target)
-        );
-        if (isOutsideClicked) {
-          this.layoutService.sidebarMobileActive.set(false);
-        }
+      const isOutsideClicked = !(
+        this.sidebar.el.nativeElement.isSameNode(event.target) ||
+        this.sidebar.el.nativeElement.contains(event.target) ||
+        this.topbar.buttonToggle.nativeElement.isSameNode(event.target) ||
+        this.topbar.buttonToggle.nativeElement.contains(event.target)
+      );
+      if (isOutsideClicked) {
+        this.layoutService.sidebarMobileActive.set(false);
       }
     });
   }
