@@ -1,4 +1,3 @@
-import { JsonPipe } from '@angular/common';
 import { Component, computed, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { AppSidebarComponent } from './app-sidebar.component';
@@ -14,7 +13,6 @@ import { SwitchLayoutComponent } from './switch-layuot.component';
     AppSidebarComponent,
     AppTopbarComponent,
     SwitchLayoutComponent,
-    JsonPipe,
   ],
   templateUrl: './app-layout.component.html',
   styleUrl: './app-layout.component.scss',
@@ -26,5 +24,6 @@ export class AppLayoutComponent {
     'layout-static': this.layoutService.sidebarVertical(),
     'layout-static-inactive': this.layoutService.sidebarDesktopInactive(),
     'layout-static-horizontal': this.layoutService.sidebarHorizontal(),
+    'layout-mobile-active': this.layoutService.sidebarMobileActive(),
   }));
 }

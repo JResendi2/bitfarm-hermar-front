@@ -12,6 +12,14 @@ export class AppTopbarComponent {
   constructor(private layoutService: LayoutService) {}
 
   toggleSidebar() {
-    this.layoutService.sidebarDesktopInactive.update((value) => !value);
+    if (this.isMobile()) {
+      this.layoutService.sidebarMobileActive.update((value) => !value);
+    } else {
+      this.layoutService.sidebarDesktopInactive.update((value) => !value);
+    }
+  }
+
+  private isMobile(): boolean {
+    return window.innerWidth < 992;
   }
 }
