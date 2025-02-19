@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LayoutService } from './service/layout.service';
 
 @Component({
@@ -9,17 +9,15 @@ import { LayoutService } from './service/layout.service';
   styleUrl: './app-topbar.component.scss',
 })
 export class AppTopbarComponent {
-  constructor(private layoutService: LayoutService) {}
+  @ViewChild('buttonToggle') buttonToggle!: any;
+
+  constructor(private layoutService: LayoutService, public el: ElementRef) {}
 
   toggleSidebar() {
-    if (this.isMobile()) {
+    if (this.layoutService.isMobile()) {
       this.layoutService.sidebarMobileActive.update((value) => !value);
     } else {
       this.layoutService.sidebarDesktopInactive.update((value) => !value);
     }
-  }
-
-  private isMobile(): boolean {
-    return window.innerWidth < 992;
   }
 }

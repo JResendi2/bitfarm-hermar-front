@@ -1,6 +1,11 @@
 <div class="layout-topbar">
   <a class="layout-topbar-logo"> Logo </a>
-  <button id="btn-menu" class="layout-btn-topbar" (click)="toggleSidebar()">
+  <button
+    id="btn-menu"
+    class="layout-btn-topbar"
+    (click)="toggleSidebar()"
+    #buttonToggle
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       height="24px"

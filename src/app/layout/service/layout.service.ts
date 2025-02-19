@@ -7,5 +7,7 @@ export class LayoutService {
   sidebarHorizontal = signal<boolean>(false);
   sidebarMobileActive = signal<boolean>(false);
 
-  constructor() {}
+  isMobile(): boolean {
+    return window.innerWidth < 992;
+  }
 }
