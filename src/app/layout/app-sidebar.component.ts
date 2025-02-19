@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './app-sidebar.component.html',
   styleUrl: './app-sidebar.component.scss',
 })
-export class AppSidebarComponent {}
+export class AppSidebarComponent {
+  constructor(public el: ElementRef) {}
+}
