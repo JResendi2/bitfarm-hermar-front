@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from './service/layout.service';
 
 @Component({
   selector: 'app-topbar',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './app-topbar.component.html',
   styleUrl: './app-topbar.component.scss',
 })
-export class AppTopbarComponent {}
+export class AppTopbarComponent {
+  constructor(private layoutService: LayoutService) {}
+
+  toggleSidebar() {
+    this.layoutService.sidebarDesktopInactive.update((value) => !value);
+  }
+}
