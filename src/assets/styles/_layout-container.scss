@@ -15,6 +15,7 @@
 .layout-main-container .layout-main {
   flex: 1 1 auto;
   border: solid black 1px;
+  background-color: var(--p-content-background);
 }
 
 .layout-static .layout-main-container {
