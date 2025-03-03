@@ -14,10 +14,8 @@ export class SwitchLayoutComponent {
   toggleSidebar() {
     if (this.layoutService.sidebarVertical()) {
       this.layoutService.sidebarVertical.set(false);
-      this.layoutService.sidebarHorizontal.set(true);
     } else {
       this.layoutService.sidebarVertical.set(true);
-      this.layoutService.sidebarHorizontal.set(false);
     }
   }
 }

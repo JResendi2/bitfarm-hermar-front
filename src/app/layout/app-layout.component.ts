@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { fromEvent, Subscription } from 'rxjs';
-import { AppSidebarComponent } from './app-sidebar.component';
 import { AppTopbarComponent } from './app-topbar.component';
+import { AppSidebar } from './component/app-sidebar';
 import { LayoutService } from './service/layout.service';
 import { SwitchLayoutComponent } from './switch-layuot.component';
 
@@ -18,7 +18,7 @@ import { SwitchLayoutComponent } from './switch-layuot.component';
   standalone: true,
   imports: [
     RouterOutlet,
-    AppSidebarComponent,
+    AppSidebar,
     AppTopbarComponent,
     SwitchLayoutComponent,
   ],
@@ -28,15 +28,17 @@ import { SwitchLayoutComponent } from './switch-layuot.component';
 export class AppLayoutComponent {
   layoutService = inject(LayoutService);
   renderer = inject(Renderer2);
-  @ViewChild('sidebar') sidebar!: AppSidebarComponent;
+  @ViewChild('sidebar') sidebar!: AppSidebar;
   @ViewChild('topbar') topbar!: AppTopbarComponent;
   private clickSubscription: Subscription | null = null;
 
   classList = computed(() => ({
-    'layout-static': this.layoutService.sidebarVertical(),
-    'layout-static-inactive': this.layoutService.sidebarDesktopInactive(),
-    'layout-static-horizontal': this.layoutService.sidebarHorizontal(),
-    'layout-mobile-active': this.layoutService.sidebarMobileActive(),
+    'sidebar-vertical-active': this.layoutService.sidebarActive(),
+    'sidebar-vertical-inactive': !this.layoutService.sidebarActive(),
+    'sidebar-mobile-active': this.layoutService.sidebarMobileActive(),
+    'sidebar-mobile-inactive': !this.layoutService.sidebarMobileActive(),
+    'sidebar-vertical': this.layoutService.sidebarVertical(),
+    'sidebar-horizontal': !this.layoutService.sidebarVertical(),
   }));
 
   constructor() {

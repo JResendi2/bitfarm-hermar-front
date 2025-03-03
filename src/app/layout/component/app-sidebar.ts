@@ -1,18 +1,34 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { AppMenuitemComponent } from './app-menuitem.component';
+import { LayoutService } from '../service/layout.service';
+import { AppMenuitem } from './app-menuitem';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [AppMenuitemComponent],
-  templateUrl: './app-sidebar.component.html',
-  styleUrl: './app-sidebar.component.scss',
+  imports: [AppMenuitem],
+  template: ` <ul
+    class="layout-menu"
+    [class]="{ 'menu-horizontal': this.isSidebarHorizontal }"
+  >
+    @for (item of model; track $index) {
+    <li
+      app-menuitem
+      [lavel]="1"
+      [item]="item"
+      class="layout-menuitem lavel-1"
+    ></li>
+    }
+  </ul>`,
 })
-export class AppSidebarComponent implements OnInit {
-  constructor(public el: ElementRef) {}
+export class AppSidebar implements OnInit {
+  constructor(public el: ElementRef, private layoutService: LayoutService) {}
 
   model: MenuItem[] = [];
+
+  get isSidebarHorizontal(): boolean {
+    return this.layoutService.sidebarVertical() === false;
+  }
 
   ngOnInit(): void {
     this.model = [

@@ -6,7 +6,6 @@ import { LayoutService } from './service/layout.service';
   standalone: true,
   imports: [],
   templateUrl: './app-topbar.component.html',
-  styleUrl: './app-topbar.component.scss',
 })
 export class AppTopbarComponent {
   @ViewChild('buttonToggle') buttonToggle!: any;
@@ -14,10 +13,14 @@ export class AppTopbarComponent {
   constructor(private layoutService: LayoutService, public el: ElementRef) {}
 
   toggleSidebar() {
-    if (this.layoutService.isMobile()) {
+    if (this.isMobile()) {
       this.layoutService.sidebarMobileActive.update((value) => !value);
     } else {
-      this.layoutService.sidebarDesktopInactive.update((value) => !value);
+      this.layoutService.sidebarActive.update((value) => !value);
     }
+  }
+
+  private isMobile(): boolean {
+    return window.innerWidth < 992;
   }
 }

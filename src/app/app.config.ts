@@ -1,4 +1,5 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
 import Lara from '@primeng/themes/lara';
 import { providePrimeNG } from 'primeng/config';
@@ -14,5 +15,6 @@ export const appConfig: ApplicationConfig = {
         preset: Lara,
       },
     }),
+    provideAnimationsAsync(),
   ],
 };

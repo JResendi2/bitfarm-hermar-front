@@ -1,8 +1,10 @@
-<div class="layout-wrapper layout-static" [class]="classList()">
+<div
+  class="layout-wrapper sidebar-vertical sidebar-vertical-active"
+  [class]="classList()"
+>
   <app-topbar #topbar></app-topbar>
-  <div>
-    <app-sidebar class="layout-sidebar" #sidebar></app-sidebar>
-  </div>
+
+  <app-sidebar class="layout-sidebar" #sidebar></app-sidebar>
 
   <div class="layout-main-container">
     <div class="layout-main">

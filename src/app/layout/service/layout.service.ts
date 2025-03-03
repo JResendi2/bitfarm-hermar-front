@@ -2,10 +2,9 @@ import { Injectable, signal } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class LayoutService {
-  sidebarDesktopInactive = signal<boolean>(false);
-  sidebarVertical = signal<boolean>(true);
-  sidebarHorizontal = signal<boolean>(false);
+  sidebarActive = signal<boolean>(true);
   sidebarMobileActive = signal<boolean>(false);
+  sidebarVertical = signal<boolean>(true);
 
   isMobile(): boolean {
     return window.innerWidth < 992;
