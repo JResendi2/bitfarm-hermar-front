@@ -1,5 +1,6 @@
 .sidebar-vertical {
   .layout-sidebar {
+    overflow-y: auto;
     width: 20rem;
     transition: transform var(--transitionDuration);
   }

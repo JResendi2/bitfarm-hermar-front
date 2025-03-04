@@ -8,6 +8,7 @@
     right: 25rem;
     left: 25rem;
     transition: transform 0s, left 0s;
+    border: solid red 1px;
   }
 }
 
@@ -17,6 +18,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+
+  .layout-menuitem.lavel-1 {
+    position: relative;
+    .hidden-angle-down {
+      display: none;
+    }
+    .layout-menu.lavel-1 {
+      position: absolute;
+    }
+  }
 
   .layout-menuitem {
     height: -webkit-fill-available;
@@ -33,12 +44,6 @@
 
     &:hover {
       background-color: var(--surface-hover);
-    }
-  }
-
-  .layout-menuitem.lavel-1 {
-    .hidden-angle-down {
-      display: none;
     }
   }
 }
